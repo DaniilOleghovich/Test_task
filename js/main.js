@@ -36,6 +36,6 @@ function resetVideoHeight() {
         function init() {
     gapi.client.setApiKey("AIzaSyAYvg9dyeokMISkse4TUFZAJq3d7zFVGH4");
     gapi.client.load("youtube", "v3", function() {
-    });}
-});
+    });
+}
 
