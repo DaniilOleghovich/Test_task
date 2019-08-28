@@ -1,3 +1,5 @@
+// let moment = require('moment');
+
 // function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 //
 //
@@ -66,14 +68,16 @@ $(function() {
             $("#results").html("");
             $.each(results.items, function(index, item) {
                 $.get("tpl/item.html", function(data) {
-                    let date = item.snippet.publishedAt;
-                    // console.log(date.replace(/.(?=y)/g,""));
-                    $("#results").append(tplawesome(data, [{"title":item.snippet.title,  "videoid":item.id.videoId, "date":item.snippet.publishedAt}]));
+                    let date = moment(item.snippet.publishedAt).format('YYYY-MM-DD, h:mm:ss');
+                    // let Newdate = date.replace(/\.\w*/g,"");
+                    console.log(date);
+                    $("#results").append(tplawesome(data, [{"title":item.snippet.title,  "videoid":item.id.videoId, "date":date}]));
                 });
             });
             resetVideoHeight();
         });
     });
+    // \d\:\T\d\:\.\w*/g
 
     $(window).on("resize", resetVideoHeight);
 });
