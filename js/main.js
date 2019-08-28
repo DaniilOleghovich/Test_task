@@ -67,7 +67,7 @@ $(function() {
             $.each(results.items, function(index, item) {
                 $.get("tpl/item.html", function(data) {
                     let date = item.snippet.publishedAt;
-                    console.log(date.replace(/.(?=y)/g,""));
+                    // console.log(date.replace(/.(?=y)/g,""));
                     $("#results").append(tplawesome(data, [{"title":item.snippet.title,  "videoid":item.id.videoId, "date":item.snippet.publishedAt}]));
                 });
             });
